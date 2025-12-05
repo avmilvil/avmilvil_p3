@@ -99,9 +99,8 @@ class MainView extends StatelessWidget{
                 Navigator.pushReplacement(
                   context, 
                   MaterialPageRoute(builder: (_) => const ProductListView())
-              );
+                );
               },
-              
             ),
           ],
         ),
