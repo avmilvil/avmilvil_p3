@@ -29,13 +29,10 @@ class _ProductTileState extends State<ProductTile>{
         switchOutCurve: Curves.easeInOut,
         transitionBuilder: (child, animation){
           final angle = animation.value * pi;
-          final isBack = (child.key is ValueKey && (child.key as ValueKey).value.toString().startsWith('back_'));
-          final finalAngle = isBack ? angle - pi : angle;
-
           return Transform(
             transform: Matrix4.identity()
               ..setEntry(3, 2, 0.001)
-              ..rotateY(finalAngle),
+              ..rotateY(angle),
             alignment: Alignment.center,
             child: child,
           );
@@ -92,7 +89,7 @@ class _ProductTileState extends State<ProductTile>{
                   Expanded(
                     child: Text(
                       p.description, 
-                      maxLines: 4, 
+                      maxLines: 3, 
                       overflow: TextOverflow.ellipsis,
                     ),
                   ),
